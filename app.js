@@ -11,22 +11,19 @@ const config = {
   http: {
     port: 8000,
     mediaroot: './media',
-    webroot: './www',
-    allow_origin: '*',
-    api: true
+    allow_origin: '*'
   },
-  https: {
-    port: 8443,
-    key: './privatekey.pem',
-    cert: './certificate.pem',
-  },
-  auth: {
-    api: true,
-    api_user: 'admin',
-    api_pass: 'admin',
-    play: false,
-    publish: false,
-    secret: 'nodemedia2017privatekey'
+  trans: {
+    ffmpeg: '/usr/local/bin/ffmpeg',
+    tasks: [
+      {
+        app: 'live',
+        hls: true,
+        hlsFlags: '[hls_time=6:hls_list_size=5:hls_flags=delete_segments]',
+        // dash: true,
+        // dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
+      }
+    ]
   }
 };
 
@@ -75,4 +72,3 @@ nms.on('postPlay', (id, StreamPath, args) => {
 nms.on('donePlay', (id, StreamPath, args) => {
   console.log('[NodeEvent on donePlay]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
 });
-

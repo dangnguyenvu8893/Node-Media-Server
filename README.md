@@ -1,3 +1,11 @@
+# VuDN
+- Require: 
+ - [Node 12](https://nodejs.org/en/)
+ - ffmpeg: `brew install ffmpeg`
+ - Run by `yarn test`
+ - RTMP link: `rtmp://{app_host}:1935/live/{name}`
+ - Admin page: `http://localhost:8000/admin`
+
 # Node-Media-Server
 [![npm](https://img.shields.io/node/v/node-media-server.svg)](https://nodejs.org/en/)
 [![npm](https://img.shields.io/npm/v/node-media-server.svg)](https://npmjs.org/package/node-media-server)
